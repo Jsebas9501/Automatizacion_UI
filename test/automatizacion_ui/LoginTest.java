@@ -55,9 +55,7 @@ public class LoginTest {
          //Timestamp timestamp = new Timestamp(System.currentTimeMillis());
          String Username = "Admin";
          String Login = "admin123";
-         
          login.FuctionLogin(Username, Login);
-         
     }
     
 }
