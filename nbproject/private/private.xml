@@ -3,7 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Sebastian/OneDrive/Documentos/NetBeansProjects/Automatizacion_UI/test/automatizacion_ui/Automatizacion_UITest.java</file>
+            <file>file:/C:/Users/Sebastian/OneDrive/Documentos/NetBeansProjects/Automatizacion_UI/src/PageObjects/AddEmployee.java</file>
+            <file>file:/C:/Users/Sebastian/OneDrive/Documentos/NetBeansProjects/Automatizacion_UI/src/PageObjects/Home.java</file>
+            <file>file:/C:/Users/Sebastian/OneDrive/Documentos/NetBeansProjects/Automatizacion_UI/src/PageObjects/EditEmployee.java</file>
+            <file>file:/C:/Users/Sebastian/OneDrive/Documentos/NetBeansProjects/Automatizacion_UI/test/automatizacion_ui/LoginTest.java</file>
+            <file>file:/C:/Users/Sebastian/OneDrive/Documentos/NetBeansProjects/Automatizacion_UI/src/PageObjects/Login.java</file>
         </group>
     </open-files>
 </project-private>

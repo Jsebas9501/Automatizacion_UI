@@ -5,8 +5,10 @@
  */
 package automatizacion_ui;
 
+import PageObjects.AddEmployee;
+import PageObjects.EditEmployee;
+import PageObjects.Home;
 import PageObjects.Login;
-import java.sql.Timestamp;
 import java.util.concurrent.TimeUnit;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -24,6 +26,9 @@ public class LoginTest {
     private static WebDriver driver = null;
     
     Login login;
+    Home home;
+    AddEmployee addEmployee;
+    EditEmployee editEmployee;
     
     @BeforeClass
     public static void setUpClass() {                
@@ -40,6 +45,9 @@ public class LoginTest {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);   
         driver.get("https://opensource-demo.orangehrmlive.com/index.php/auth/login");   
         login = new Login(driver);
+        home = new Home(driver);
+        addEmployee = new AddEmployee(driver);
+        editEmployee = new EditEmployee(driver);
     }
     
     @After
@@ -52,10 +60,23 @@ public class LoginTest {
      */
     @Test
     public void LoginPass() {
-         //Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        //Hacer Inicio de sesión
          String Username = "Admin";
-         String Login = "admin123";
-         login.FuctionLogin(Username, Login);
+         String Password = "admin123";
+         login.FuctionLogin(Username, Password);
+         
+         //Ingresar a AddEmployed
+         home.clicPIM();
+         //home.clicAddEmployed();
+         home.clicBtnAddEmployee();
+         
+         //Ingresar un empleado
+         String firsName = "Sebastian";
+         String lastName = "Molina";
+         addEmployee.FuctionAddEmployee(firsName, lastName);
+         
+         //Ingresar a Editar
+         editEmployee.FuctionEditEmployee();
     }
     
 }
