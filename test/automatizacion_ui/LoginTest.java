@@ -76,7 +76,18 @@ public class LoginTest {
          addEmployee.FuctionAddEmployee(firsName, lastName);
          
          //Ingresar a Editar
-         editEmployee.FuctionEditEmployee();
+         String gender = "1";
+         String national = "34";
+         String nickName = "JSebas";
+         String marital = "Single";
+         String date = "2120-01-01";
+         editEmployee.FuctionEditEmployee(gender, national, nickName, marital, date);
+         editEmployee.clicEmployeeList();
+
+        //Ingresar a Lista de empleados
+        String id = "0250";
+        home.FuctionSearch(id);
+        
     }
     
 }
