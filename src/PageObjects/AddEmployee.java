@@ -42,7 +42,7 @@ public class AddEmployee {
     public void FuctionAddEmployee(String Firtname, String Lastname){
         this.setFirstName(Firtname);
         this.setLastName(Lastname);
-        this.getEmployeeId();
+        //this.getEmployeeId();
         this.clicSave();
     }
     

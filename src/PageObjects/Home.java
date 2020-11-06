@@ -16,7 +16,6 @@ public class Home {
     WebDriver driver;
     By PIM = By.id("menu_pim_viewPimModule");
     By addEmployee = By.id("menu_pim_addEmployee");
-    By btnAddEmployee = By.cssSelector("input[name='btnAdd']");
     By Id = By.cssSelector("input[name='empsearch[id]']");
     By btnSearch = By.id("searchBtn");
     
@@ -32,10 +31,6 @@ public class Home {
         driver.findElement(addEmployee).click();
     }
     
-    public void clicBtnAddEmployee(){
-        driver.findElement(btnAddEmployee).click();
-    }
-    
     public void setId(String id){
         driver.findElement(Id).sendKeys(id);
     }
@@ -43,7 +38,7 @@ public class Home {
     public void clicSearch(){
         driver.findElement(btnSearch).click();
     }
-    
+       
     public void FuctionSearch(String Id){
         this.setId(Id);
         this.clicSearch();        
