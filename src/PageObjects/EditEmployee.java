@@ -7,6 +7,8 @@ package PageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 /**
  *
@@ -15,7 +17,8 @@ import org.openqa.selenium.WebDriver;
 public class EditEmployee {
     WebDriver driver;
     By Edit = By.cssSelector("input[value='Edit']");
-    By Gender = By.cssSelector("input[name='personal[optGender]']");
+    By optMale = By.id("personal_optGender_1");
+    By optFamele = By.id("personal_optGender_2");
     By Nationality = By.id("personal_cmbNation");
     By NickName = By.id("personal_txtEmpNickName");
     By MaritalStatus = By.id("personal_cmbMarital");
@@ -31,20 +34,29 @@ public class EditEmployee {
         driver.findElement(Edit).click();
     }
     
-    public void selectGender(String GenderOpt){
-        driver.findElement(Gender).sendKeys(GenderOpt);
+    public void clickMale(){
+        driver.findElement(optMale).click();
     }
-    
-    public void selectNationality(String NationOpt){
-        driver.findElement(Nationality).sendKeys(NationOpt);
+    public void clickFemale(){
+        driver.findElement(optFamele).click();
     }
-    
+       
     public void setNickName(String NickNameText){
         driver.findElement(NickName).sendKeys(NickNameText);
     }
     
-    public void selectMarital(String Marital){
-        driver.findElement(MaritalStatus).sendKeys(Marital);
+    public void selectMarital(int Marital){
+        WebElement cmb_marital = driver.findElement(MaritalStatus);
+        Select marital = new Select(cmb_marital);
+        if(Marital == 1) marital.selectByVisibleText("Single");
+        if(Marital == 2) marital.selectByVisibleText("Married");
+        if(Marital == 3) marital.selectByVisibleText("Other");
+    }
+    
+    public void selectNationality(int NationOpt){
+        WebElement cmb_marital = driver.findElement(Nationality);
+        Select nation = new Select(cmb_marital);
+        nation.selectByIndex(NationOpt);
     }
     
     public void selectDate(String Date){
@@ -60,14 +72,12 @@ public class EditEmployee {
         driver.findElement(EmployeeList).click();
     }
     
-    public void FuctionEditEmployee(String gender, String nationaliy, String nickName, String maritalStatus, String dateBirth){
+    public void FuctionEditEmployee(int nationaliy, String nickName, int maritalStatus, String dateBirth){
         this.clicEdit();
-        this.selectGender(gender);
         this.selectNationality(nationaliy);
         this.setNickName(nickName);
         this.selectMarital(maritalStatus);
         this.selectDate(dateBirth);
         this.clicEditSave();
-        //this.clicEmployeeList();
     }
 }

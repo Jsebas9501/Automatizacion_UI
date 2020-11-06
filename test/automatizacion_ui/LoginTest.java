@@ -76,8 +76,11 @@ public class LoginTest {
     @Test
     public void LoginPass() {
         //Hacer Inicio de sesión
-        String Username = "Admin";
-        String Password = "admin123";
+        //String Username = "Admin";
+        //String Password = "admin123";
+        
+        String Username = "politecnicojic";
+        String Password = "Asdf1234";
         login.FuctionLogin(Username, Password);
 
         //Ingresar a AddEmployed
@@ -93,25 +96,34 @@ public class LoginTest {
         addEmployee.FuctionAddEmployee(firsName, lastName);
 
         //Ingresar a Editar
-        String gender = "1";
-        String national = "34";
+        
+        //Ingresar Gender
+        int optGender = rand.nextInt(2) + 1;
+        if(optGender == 1) {
+            editEmployee.clickMale();      
+        } else {
+            editEmployee.clickFemale();
+        }
+        
+        int nation = rand.nextInt(193)+ 1; //Número aleatorio para Nationality
         String nickName = firsName + "_" + lastName;
-        String marital = "Single";
-
+        int marital = rand.nextInt(3)+ 1; //Número aleatorio para Marital
+        
         //Generar Fecha Aleatoria
-        int yyyy = (int) rand.nextInt((2120 - 1920) + 1) + 1920; //Aleatorio Año
-        int mm = (int) rand.nextInt((12 - 1) + 1) + 1; //Aleatorio Mes
-        int dd = (int) rand.nextInt((31 - 1) + 1) + 1; //Aleatorio Mes
+        int yyyy = rand.nextInt((2120 - 1920) + 1) + 1920; //Aleatorio Año
+        int mm = rand.nextInt(12) + 1; //Aleatorio Mes
+        int dd = rand.nextInt(31) + 1; //Aleatorio Dia
 
         date = Calendar.getInstance(); //Instancia de la clase Calendar 
         date.set(yyyy, mm, dd);         //Se guardan los valores aleatorios
         SimpleDateFormat amd = new SimpleDateFormat("yyyy-mm-dd"); //Formato de fecha
         String date1 = amd.format(date.getTime()); //Cambiamos la fecha a String  
-        editEmployee.FuctionEditEmployee(gender, national, nickName, marital, date1);
+        editEmployee.FuctionEditEmployee(nation, nickName, marital, date1);
         sleep(1000);
         editEmployee.clicEmployeeList();
 
         //Ingresar a Lista de empleados
+        //String name = firsName + "_" + lastName;
         String id = "0250";
         home.FuctionSearch(id);
 
