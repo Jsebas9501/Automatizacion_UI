@@ -16,7 +16,7 @@ public class AddEmployee {
     WebDriver driver;
     By firstName = By.id("firstName");
     By lastName = By.id("lastName");
-    By employeeId = By.id("employeeId");
+    By employeeId = By.name("employeeId");
     By Save = By.id("btnSave");
     
     public AddEmployee(WebDriver driver){
@@ -31,8 +31,10 @@ public class AddEmployee {
         driver.findElement(lastName).sendKeys(LastNameText);
     }
     
-    public void getEmployeeId(){
-        driver.findElement(employeeId).getAttribute("employeeId");
+    public String getEmployeeId(){
+        String id = driver.findElement(employeeId).getAttribute("value");
+        System.out.println(id);
+        return id;
     }
     
     public void clicSave(){

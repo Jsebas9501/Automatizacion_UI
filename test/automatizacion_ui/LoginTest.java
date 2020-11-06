@@ -93,8 +93,9 @@ public class LoginTest {
         String firsName = String.valueOf(firsNameInt);
         int lastNameInt = rand.nextInt(999999) + 100000;;//Aleatorio para LastName
         String lastName = String.valueOf(lastNameInt);
+        String id = addEmployee.getEmployeeId();
         addEmployee.FuctionAddEmployee(firsName, lastName);
-
+        
         //Ingresar a Editar
         
         //Ingresar Gender
@@ -122,10 +123,13 @@ public class LoginTest {
         sleep(1000);
         editEmployee.clicEmployeeList();
 
-        //Ingresar a Lista de empleados
-        //String name = firsName + " " + lastName;
-        String id = "0250";
+        //Agregar Id en el campo y buscar
+        sleep(1000);
         home.FuctionSearch(id);
+        
+        //Clic en el Id de la Tabla
+        sleep(1000);
+        home.clicId();
 
     }
 

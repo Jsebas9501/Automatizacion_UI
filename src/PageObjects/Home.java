@@ -19,6 +19,7 @@ public class Home {
     By searchNameEmployee = By.id("empsearch_employee_name_empName");
     By searchId = By.id("empsearch_id");
     By btnSearch = By.id("searchBtn");
+    By clicId = By.xpath("//*[@id=\"resultTable\"]/tbody/tr[1]/td[2]/a");
     
     public Home(WebDriver driver){
         this.driver = driver;
@@ -38,11 +39,16 @@ public class Home {
     }
     
     public void setSearchId(String SearchId){
+        driver.findElement(searchId).clear();
         driver.findElement(searchId).sendKeys(SearchId);
     }
     
     public void clicSearch(){
         driver.findElement(btnSearch).click();
+    }
+    
+    public void clicId(){
+        driver.findElement(clicId).click();
     }
        
     public void FuctionSearch(String Id){
