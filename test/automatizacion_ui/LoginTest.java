@@ -75,7 +75,7 @@ public class LoginTest {
      */
     
     /**
-     * Caso de prueba Crear empleado, editarlo y buscarlo.
+     * Caso de prueba: Verificar que se cree un empleado, editarlo y buscarlo.
      * Pasos a ejecutar:
      * 1.Iniciar sesión
      * 2.Ingresar a la pestaña PIM
