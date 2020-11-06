@@ -33,7 +33,7 @@ public class LoginTest {
     Home home;
     AddEmployee addEmployee;
     EditEmployee editEmployee;
-    Random rand = new Random();
+    Random rand;
     Calendar date;
 
     @BeforeClass
@@ -54,6 +54,8 @@ public class LoginTest {
         home = new Home(driver);
         addEmployee = new AddEmployee(driver);
         editEmployee = new EditEmployee(driver);
+        rand = new Random();
+    
 
     }
 
@@ -76,11 +78,9 @@ public class LoginTest {
     @Test
     public void LoginPass() {
         //Hacer Inicio de sesión
-        //String Username = "Admin";
-        //String Password = "admin123";
-        
-        String Username = "politecnicojic";
-        String Password = "Asdf1234";
+        String Username = "Admin";
+        String Password = "admin123";
+       
         login.FuctionLogin(Username, Password);
 
         //Ingresar a AddEmployed
@@ -89,15 +89,16 @@ public class LoginTest {
         home.clicAddEmployee();
 
         //Ingresar un empleado
-        int firsNameInt = (int) (Math.random() * 999999) + 100000;//Aleatorio para FirstName
+        int firsNameInt = rand.nextInt(999999) + 100000;//Aleatorio para FirstName
         String firsName = String.valueOf(firsNameInt);
-        int lastNameInt = (int) (Math.random() * 999999) + 100000;//Aleatorio para LastName
+        int lastNameInt = rand.nextInt(999999) + 100000;;//Aleatorio para LastName
         String lastName = String.valueOf(lastNameInt);
         addEmployee.FuctionAddEmployee(firsName, lastName);
 
         //Ingresar a Editar
         
         //Ingresar Gender
+        sleep(1000);
         int optGender = rand.nextInt(2) + 1;
         if(optGender == 1) {
             editEmployee.clickMale();      
