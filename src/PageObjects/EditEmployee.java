@@ -72,8 +72,14 @@ public class EditEmployee {
         driver.findElement(EmployeeList).click();
     }
     
-    public void FuctionEditEmployee(int nationaliy, String nickName, int maritalStatus, String dateBirth){
+    public void FuctionEditEmployee(int gender,int nationaliy, String nickName, int maritalStatus, String dateBirth){
         this.clicEdit();
+        if(gender == 1) {
+            this.clickMale();      
+        } else {
+            this.clickFemale();
+        }
+        
         this.selectNationality(nationaliy);
         this.setNickName(nickName);
         this.selectMarital(maritalStatus);

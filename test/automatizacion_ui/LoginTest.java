@@ -98,33 +98,32 @@ public class LoginTest {
         //Ingresar a Editar
         
         //Ingresar Gender
-        sleep(1000);
+        sleep(1000);  
         int optGender = rand.nextInt(2) + 1;
-        if(optGender == 1) {
-            editEmployee.clickMale();      
-        } else {
-            editEmployee.clickFemale();
-        }
-        
         int nation = rand.nextInt(193)+ 1; //Número aleatorio para Nationality
         String nickName = firsName + "_" + lastName;
         int marital = rand.nextInt(3)+ 1; //Número aleatorio para Marital
         
         //Generar Fecha Aleatoria
         int yyyy = rand.nextInt((2120 - 1920) + 1) + 1920; //Aleatorio Año
+        String stringYYYY = String.valueOf(yyyy);    
         int mm = rand.nextInt(12) + 1; //Aleatorio Mes
-        int dd = rand.nextInt(31) + 1; //Aleatorio Dia
-
-        date = Calendar.getInstance(); //Instancia de la clase Calendar 
-        date.set(yyyy, mm, dd);         //Se guardan los valores aleatorios
-        SimpleDateFormat amd = new SimpleDateFormat("yyyy-mm-dd"); //Formato de fecha
-        String date1 = amd.format(date.getTime()); //Cambiamos la fecha a String  
-        editEmployee.FuctionEditEmployee(nation, nickName, marital, date1);
+        String stringMM = String.valueOf(mm);    
+        int dd = rand.nextInt((31 - 1) + 1) + 1; //Aleatorio Dia
+        String stringDD = String.valueOf(dd); 
+        
+        String Date = stringYYYY; //Contruir Date yyyy
+        if(stringMM.length() == 1) Date += "-0" + stringMM; //Date yyyy-mm
+        else Date += "-" + stringMM;
+        if(stringDD.length() == 1) Date += "-0" + stringDD;// Date yyyy-mm-dd
+        else Date += "-" + stringDD;
+        
+        editEmployee.FuctionEditEmployee(optGender,nation, nickName, marital, Date);
         sleep(1000);
         editEmployee.clicEmployeeList();
 
         //Ingresar a Lista de empleados
-        //String name = firsName + "_" + lastName;
+        //String name = firsName + " " + lastName;
         String id = "0250";
         home.FuctionSearch(id);
 
