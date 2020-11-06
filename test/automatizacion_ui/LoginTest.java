@@ -55,8 +55,6 @@ public class LoginTest {
         addEmployee = new AddEmployee(driver);
         editEmployee = new EditEmployee(driver);
         rand = new Random();
-    
-
     }
 
     @After
@@ -75,12 +73,41 @@ public class LoginTest {
     /**
      * Test of main method, of class SeleniumPractice.
      */
+    
+    /**
+     * Caso de prueba Crear empleado, editarlo y buscarlo.
+     * Pasos a ejecutar:
+     * 1.Iniciar sesión
+     * 2.Ingresar a la pestaña PIM
+     * 3.Ingresar a la pestaña AddEmployee
+     * 4.Ingresar firstName de modo aleatorio
+     * 5.Ingresar lastName de modo aleatorio
+     * 6.Captuar el IdEmployee
+     * 7.Clic en Save
+     * 8.Clic en Edit
+     * 9.Ingresar a la pestaña de Editar
+     * 10.Seleccionar Gender de modo aleatorio
+     * 12.Seleccionar Nationality de modo aleatorio
+     * 12.Ingresar nickName de modo aleatorio
+     * 13.Seleccionar Marital de modo aleatorio
+     * 14.Ingresar Date en modo aleatorio
+     * 15.Clic en Save
+     * 16.Clic en EmployeeList
+     * 17.Ingresar Id capturado
+     * 18.Clic en Search
+     * 19.Clic Id de la tabla encontrada
+     * 
+     * Resultado esperado: El sistema debe ingresar con las credenciales dadas,
+     * ingresar los datos necesarios para crear el empleado y editar los campos asigandos 
+     * Gender, Nationality, Marital, NickName y Date, guardalos, y luego buscar por el Id del Employee.
+     * 
+     * Tiempo estimado para la ejecucón 30 segundos.
+     */
     @Test
     public void LoginPass() {
         //Hacer Inicio de sesión
         String Username = "Admin";
         String Password = "admin123";
-       
         login.FuctionLogin(Username, Password);
 
         //Ingresar a AddEmployed
@@ -97,7 +124,6 @@ public class LoginTest {
         addEmployee.FuctionAddEmployee(firsName, lastName);
         
         //Ingresar a Editar
-        
         //Ingresar Gender
         sleep(1000);  
         int optGender = rand.nextInt(2) + 1;
@@ -129,8 +155,6 @@ public class LoginTest {
         
         //Clic en el Id de la Tabla
         sleep(1000);
-        home.clicId();
-
+        home.clicId();        
     }
-
 }
