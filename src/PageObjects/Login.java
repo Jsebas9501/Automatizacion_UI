@@ -11,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 /**
  *
  * @author Sebastian
+ * Taller de Atomatización UI - Ejercicio 03
  */
 public class Login {
     WebDriver driver;
