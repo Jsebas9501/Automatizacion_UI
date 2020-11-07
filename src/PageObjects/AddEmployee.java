@@ -11,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 /**
  *
  * @author Sebastian
+ * Taller de Atomatización UI - Ejercicio 03
  */
 public class AddEmployee {
     WebDriver driver;
@@ -33,7 +34,6 @@ public class AddEmployee {
     
     public String getEmployeeId(){
         String id = driver.findElement(employeeId).getAttribute("value");
-        System.out.println(id);
         return id;
     }
     

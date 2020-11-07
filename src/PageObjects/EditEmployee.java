@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.Select;
 /**
  *
  * @author Sebastian
+ * Taller de Atomatización UI - Ejercicio 03
  */
 public class EditEmployee {
     WebDriver driver;
@@ -46,16 +47,16 @@ public class EditEmployee {
     }
     
     public void selectMarital(int Marital){
-        WebElement cmb_marital = driver.findElement(MaritalStatus);
-        Select marital = new Select(cmb_marital);
+        WebElement statusMarital = driver.findElement(MaritalStatus);
+        Select marital = new Select(statusMarital);
         if(Marital == 1) marital.selectByVisibleText("Single");
         if(Marital == 2) marital.selectByVisibleText("Married");
         if(Marital == 3) marital.selectByVisibleText("Other");
     }
     
     public void selectNationality(int NationOpt){
-        WebElement cmb_marital = driver.findElement(Nationality);
-        Select nation = new Select(cmb_marital);
+        WebElement nationality = driver.findElement(Nationality);
+        Select nation = new Select(nationality);
         nation.selectByIndex(NationOpt);
     }
     
@@ -78,12 +79,11 @@ public class EditEmployee {
             this.clickMale();      
         } else {
             this.clickFemale();
-        }
-        
-        this.selectNationality(nationaliy);
-        this.setNickName(nickName);
+        }  
+        this.selectNationality(nationaliy);    
         this.selectMarital(maritalStatus);
         this.selectDate(dateBirth);
+        this.setNickName(nickName);
         this.clicEditSave();
     }
 }

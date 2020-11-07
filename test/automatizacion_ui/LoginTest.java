@@ -9,12 +9,14 @@ import PageObjects.AddEmployee;
 import PageObjects.EditEmployee;
 import PageObjects.Home;
 import PageObjects.Login;
+import PageObjects.Verification;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -24,6 +26,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 /**
  *
  * @author Sebastian
+ * Taller de Atomatización UI - Ejercicio 03
  */
 public class LoginTest {
 
@@ -35,6 +38,7 @@ public class LoginTest {
     EditEmployee editEmployee;
     Random rand;
     Calendar date;
+    Verification verificar;
 
     @BeforeClass
     public static void setUpClass() {
@@ -55,11 +59,12 @@ public class LoginTest {
         addEmployee = new AddEmployee(driver);
         editEmployee = new EditEmployee(driver);
         rand = new Random();
+        verificar = new Verification(driver);
     }
 
     @After
     public void tearDown() {
-        //driver.quit();
+        driver.quit();
     }
 
     //Metodo para esperar un tiempo entre clicks
@@ -127,9 +132,11 @@ public class LoginTest {
         //Ingresar Gender
         sleep(1000);  
         int optGender = rand.nextInt(2) + 1;
+        String genderVer = String.valueOf(optGender);
         int nation = rand.nextInt(193)+ 1; //Número aleatorio para Nationality
-        String nickName = firsName + "_" + lastName;
+        String nationVer = String.valueOf(nation);
         int marital = rand.nextInt(3)+ 1; //Número aleatorio para Marital
+        String nickName = firsName + "_" + lastName;
         
         //Generar Fecha Aleatoria
         int yyyy = rand.nextInt((2120 - 1920) + 1) + 1920; //Aleatorio Año
@@ -155,6 +162,29 @@ public class LoginTest {
         
         //Clic en el Id de la Tabla
         sleep(1000);
-        home.clicId();        
+        home.clicId();
+        
+        //Verificación
+        assertEquals("Datos iguales", firsName, verificar.getFirstName());
+        assertEquals("Datos iguales", lastName, verificar.getLastName());
+        assertEquals("Datos iguales", id, verificar.getIdEmployee());
+        assertEquals("Datos iguales", nickName, verificar.getNickName());
+        assertEquals("Datos iguales", Date, verificar.getDateBirth());         
+        assertEquals("Datos iguales", nationVer, verificar.getNation());
+        
+        if(optGender == 1) {
+            assertEquals("Datos iguales", genderVer, verificar.getGenderMale());
+        } else {
+            assertEquals("Datos iguales", genderVer, verificar.getGenderFamele());
+        }         
+        
+        String marital1 = "Single";
+        String marital2 = "Married";
+        String marital3 = "Other";        
+        if(marital == 1) assertEquals("Datos iguales", marital1, verificar.getMarital());
+        if(marital == 2) assertEquals("Datos iguales", marital2, verificar.getMarital());
+        if(marital == 3) assertEquals("Datos iguales", marital3, verificar.getMarital());
+        
+        sleep(3000);
     }
 }

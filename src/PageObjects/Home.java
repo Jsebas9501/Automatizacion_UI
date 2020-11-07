@@ -11,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 /**
  *
  * @author Sebastian
+ * Taller de Atomatización UI - Ejercicio 03
  */
 public class Home {
     WebDriver driver;
@@ -52,7 +53,6 @@ public class Home {
     }
        
     public void FuctionSearch(String Id){
-       //this.setSearchEmployee(Name);
        this.setSearchId(Id);
        this.clicSearch();        
     }
