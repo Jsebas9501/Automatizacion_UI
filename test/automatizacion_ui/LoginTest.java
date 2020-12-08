@@ -165,12 +165,12 @@ public class LoginTest {
         home.clicId();
         
         //Verificación
-        assertEquals("Datos iguales", firsName, verificar.getFirstName());
-        assertEquals("Datos iguales", lastName, verificar.getLastName());
-        assertEquals("Datos iguales", id, verificar.getIdEmployee());
-        assertEquals("Datos iguales", nickName, verificar.getNickName());
-        assertEquals("Datos iguales", Date, verificar.getDateBirth());         
-        assertEquals("Datos iguales", nationVer, verificar.getNation());
+        assertEquals("Cambios en la rama Conflictos", firsName, verificar.getFirstName());
+        assertEquals("Cambios en la rama Conflictos", lastName, verificar.getLastName());
+        assertEquals("Cambios en la rama Conflictos", id, verificar.getIdEmployee());
+        assertEquals("Taller Git", nickName, verificar.getNickName());
+        assertEquals("Taller Git", Date, verificar.getDateBirth());         
+        assertEquals("Taller Git", nationVer, verificar.getNation());
         
         if(optGender == 1) {
             assertEquals("Datos iguales", genderVer, verificar.getGenderMale());
